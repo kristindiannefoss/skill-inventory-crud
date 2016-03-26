@@ -103,4 +103,28 @@ class SkillInventoryTest < Minitest::Test
     assert_equal 0, all_skills.size
     refute all_skills.any? { |skill| skill.title == "Skill Title 1" }
   end
+
+  def test_it_can_delete_all_skills
+    skill_inventory.create({
+      :title       => "Skill Title 1",
+      :description => "Skill Description 1"
+      })
+    skill_inventory.create({
+      :title       => "Skill Title 2",
+      :description => "Skill Description 2"
+      })
+    skill_inventory.create({
+      :title       => "Skill Title 3",
+      :description => "Skill Description 3"
+      })
+    all_skills = skill_inventory.all
+
+    assert_equal 3, all_skills.size
+
+    skill_inventory.delete_all
+    all_skills = skill_inventory.all
+
+    assert_equal 0, all_skills.size
+    refute all_skills.any? { |skill| skill.title == "Skill Title 1" }
+  end
 end
