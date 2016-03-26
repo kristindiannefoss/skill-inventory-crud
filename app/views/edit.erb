@@ -2,5 +2,5 @@
   <input type="hidden" name="_method" value="put">  <!-- override original verb-->
   <input type="text" name="skill[title]" value="<%= @skill.title %>"> <!--name of any form builds the param behind the scenes-->
   <textarea name="skill[description]"> <%= @skill.description %></textarea><br>
-  <input type="submit">
+  <input class="btn btn-primary" type='submit' value="Submit">
 </form>

@@ -1,13 +1,10 @@
 require_relative '../test_helper'
-# require 'minitest'
-# require 'minitest/pride'
-# require 'tilt/erb'
 
-class UserCreatesSkill < Minitest::Test
+class UserEditsSkill < Minitest::Test
   include TestHelpers
   include Capybara::DSL
 
-  def test_user_can_create_new_skill
+  def test_user_can_edit_a_skill
     visit '/'
 
       click_link("New Skill")
@@ -19,15 +16,14 @@ class UserCreatesSkill < Minitest::Test
 
     visit '/skills'
 
-    assert_equal "/skills/1", current_path
+      click_link("Edit")
 
-    within("from") do
+      fill_in('skill[title]', with: "situps")
+      fill_in('skill[description]', with: "abs mon")
+      click_button("Submit")
+
+    within('.navbar-brand') do
       assert page.has_content?("situps")
     end
   end
-
-  # click_link(identifier)
-  # click_button(identifier text on button)
-  # assert_equal 'path', current_path  for redirect testing
-
 end

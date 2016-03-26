@@ -34,7 +34,7 @@ class SkillInventoryApp < Sinatra::Base
   end
 
   put '/skills/:id' do |id|
-    skill_inventory.update(params[:skill], id.to_i)
+    skill_inventory.update(id.to_i, params[:skill])
     redirect "/skills/#{id}"
   end
 

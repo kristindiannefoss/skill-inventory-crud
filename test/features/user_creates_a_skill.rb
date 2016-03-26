@@ -13,23 +13,16 @@ class UserCreatesSkill < Minitest::Test
       click_link("New Skill")
 
       assert_equal "/skills/new", current_path
-      fill_in('skill[title]', with: "pushups")
-      fill_in('skill[description]', with: "get jacked")
-      click_button("Submit")
+      fill_in('skill[title]', with: 'pushups')
+      fill_in('skill[description]', with: 'get jacked')
+      click_button('Submit')
+      # binding.pry
 
     visit '/skills'
+    assert_equal "/skills", current_path
 
-      click_link("Edit")
-      assert_equal "skills/1/edit", current_path
-
-      fill_in 'skill[title]', with: "situps"
-      fill_in 'skill[description]', with: "abs mon"
-      click_button("Submit")
-
-    assert_equal "/skills/1", current_path
-
-    within("from") do
-      assert page.has_content?("situps")
+    within 'body' do
+      assert page.has_content?('pushups')
     end
   end
 
