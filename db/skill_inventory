@@ -1,0 +1,9 @@
+---
+skills:
+- id: 2
+  title: bow staff skills
+  description: "sweet sweet skills\r\n"
+- id: 3
+  title: something
+  description: "  doing something good\r\n\r\n"
+total: 4
