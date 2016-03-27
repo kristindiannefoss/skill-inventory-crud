@@ -1,6 +1,18 @@
+<div class="container"
+<div class="well">
+<div class='col-md-12 navbar navbar-default'>
+  <div class='navbar-brand'>Edit Skill</div>
+  <ul class='nav navbar-nav navbar-right'>
+    <li><a href="/skills/new">New Skill</a></li>
+    <li><a href="/skills/">My Skills</a></li>
+    <li><a href = "/">Home</a></li>
+  </ul>
+</div>
+
 <form action="/skills/<%= @skill.id %>" method="post">
   <input type="hidden" name="_method" value="put">  <!-- override original verb-->
-  <input type="text" name="skill[title]" value="<%= @skill.title %>"> <!--name of any form builds the param behind the scenes-->
+  <input type="text" name="skill[title]" value="<%= @skill.title %>"><br> <!--name of any form builds the param behind the scenes-->
   <textarea name="skill[description]"> <%= @skill.description %></textarea><br>
   <input class="btn btn-primary" type='submit' value="Submit">
 </form>
+</div>
