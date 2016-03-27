@@ -1,11 +1,33 @@
+<div class="container">
 <h1>My Skills</h1>
 
 <% @skills.each do |skill| %>
-  <h3>(<%= skill[:id] %>) <a href="/skills/<%= skill[:id] %>"><%= skill[:title] %></a></h3>
-  <a href="/skills/<%= skill[:id] %>/edit">Edit</a>
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="..." alt="...">
+        <div class="caption">
+        <h3>(<%= skill[:id] %>) <a href="/skills/<%= skill[:id] %>"><%= skill[:title] %></a></h3>
 
-  <form action="/skills/<%= skill[:id] %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="delete">
-  </form>
+          <p><a class="btn btn-primary" href="/skills/<%= skill[:id] %>/edit">Edit</a><form action="/skills/<%= skill[:id] %>" method="post"><input type="hidden" name="_method" value="delete"><input class="btn btn-danger" type="submit" value="Delete"></p>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
+<!--
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3>Thumbnail label</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- <input type="submit" value="delete"> -->
